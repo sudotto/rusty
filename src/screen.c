@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "screen.h"
 
@@ -16,7 +17,7 @@ Screen new_screen(int w, int h){
 void write_screen(Screen* screen, int x, int y, char* string, int fg, int bg){
 	int old_x = x;
 	int old_y = y;
-	for(int i = 0; i < sizeof(string); i++){
+	for(int i = 0; i < strlen(string); i++){
 		if(string[i] == '\n'){
 			y++;
 			x = old_x;
