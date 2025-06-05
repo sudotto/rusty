@@ -4,7 +4,7 @@
 #define SCREEN_MAX_W 500
 #define SCREEN_MAX_H 500
 
-#define CLR_RESET "\e[0m"
+#define CLR_RESET "\e[0;0m"
 
 #define FG_BLK 30
 #define FG_RED 31

@@ -49,8 +49,8 @@ void render_screen(Screen* screen){
 		for(int x = 0; x <= screen->w; x++){
 			printf("\e[%i;%im", screen->fg[y][x], screen->bg[y][x]);
 			printf("%c", screen->chars[y][x]);
+			printf("%s", CLR_RESET);
 		}
 		printf("\n");
 	}
-	printf("%s", CLR_RESET);
 }
