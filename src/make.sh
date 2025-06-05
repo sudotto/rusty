@@ -1,1 +1,1 @@
-gcc main.c screen.c -o game
+gcc main.c screen.c input.c menu.c -o game

@@ -1,8 +1,8 @@
 #ifndef SCREEN
 #define SCREEN
 
-#define SCREEN_MAX_W 100
-#define SCREEN_MAX_H 100
+#define SCREEN_MAX_W 500
+#define SCREEN_MAX_H 500
 
 #define CLR_RESET "\e[0m"
 
@@ -41,6 +41,10 @@
 #define BG_BRIGHT_PUR 105
 #define BG_BRIGHT_CYN 106
 #define BG_BRIGHT_WHT 107
+
+// UTILS
+
+int center(int size1, int size2);
 
 // SCREEN STRUCTURE
 
