@@ -16,11 +16,15 @@ Screen new_screen(int w, int h){
 	Screen screen;
 	screen.w = w;
 	screen.h = h;
-	fill_screen(&screen, '#', FG_WHT, BG_BLK);
+	fill_screen(&screen, 0, 0, w, h, '#', FG_WHT, BG_BLK);
 	return screen;
 }
 
 void write_screen(Screen* screen, int x, int y, char* string, int fg, int bg){
+	if(x > screen->w || y > screen->h || x < 0 || y < 0){
+		printf("%i , %i\n", x, y);
+		return;
+	}
 	int old_x = x;
 	int old_y = y;
 	for(int i = 0; i < strlen(string); i++){
@@ -36,9 +40,11 @@ void write_screen(Screen* screen, int x, int y, char* string, int fg, int bg){
 	}
 }
 
-void fill_screen(Screen* screen, char c, int fg, int bg){
-	for(int y = 0; y <= screen->h; y++){
-		for(int x = 0; x <= screen->w; x++){
+void fill_screen(Screen* screen, int x, int y, int w, int h, char c, int fg, int bg){
+	int old_x = x;
+	int old_y = y;
+	for(y = old_y; y <= h + old_y; y++){
+		for(x = old_x; x <= w + old_x; x++){
 			write_screen(screen, x, y, &c, fg, bg);
 		}
 	}

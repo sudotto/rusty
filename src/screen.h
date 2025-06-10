@@ -58,7 +58,7 @@ typedef struct {
 
 Screen new_screen(int w, int h);
 void write_screen(Screen* screen, int x, int y, char* string, int fg, int bg);
-void fill_screen(Screen* screen, char c, int fg, int bg);
+void fill_screen(Screen* screen, int x, int y, int w, int h, char c, int fg, int bg);
 void render_screen(Screen* screen);
 
 #endif
