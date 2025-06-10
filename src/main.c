@@ -7,11 +7,13 @@
 #include "input.h"
 #include "menu.h"
 #include "scene.h"
+#include "player.h"
 
 int main(){
 	printf("\e[?1049h");
 	Screen screen = new_screen(150, 40);
 	Scene scene = MAIN_MENU;
+	Player player = new_player("rusty", 0, 0);
 	bool running = true;
 	while(running){
 		switch(scene){
@@ -22,7 +24,7 @@ int main(){
 				scene = main_menu_scene(&screen);
 				break;
 			case GAME:
-				scene = game_scene(&screen);
+				scene = game_scene(&screen, &player);
 				break;
 		}
 	}

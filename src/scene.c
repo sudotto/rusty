@@ -6,6 +6,7 @@
 #include "screen.h"
 #include "input.h"
 #include "menu.h"
+#include "player.h"
 
 #include "scene.h"
 
@@ -39,12 +40,14 @@ Scene main_menu_scene(Screen* screen){
 	return MAIN_MENU;
 }
 
-Scene game_scene(Screen* screen){
+Scene game_scene(Screen* screen, Player* player){
 	char key;
 	bool running = true;
 	while(running){
 		printf("\x1b[H");
 		fill_screen(screen, 0, 0, screen->w, screen->h, ' ', FG_BLK, BG_RED);
+		update_player(player, key);
+		render_player(screen, player);
 		render_screen(screen);
 		key = get_key();
 		if(key == 'M' || key == 'm'){
